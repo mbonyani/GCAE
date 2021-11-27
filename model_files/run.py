@@ -2,7 +2,7 @@ import os
 import argparse
 import datetime
 import torch
-import torchtext.data as data
+import torchtext.legacy.data as data
 from w2v import *
 
 from cnn_gate_aspect_model import CNN_Gate_Aspect_Text
