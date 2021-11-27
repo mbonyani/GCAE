@@ -3,7 +3,7 @@ import os
 import random
 import tarfile
 from six.moves import urllib
-from torchtext import data
+from torchtext.legacy import data
 from torch.utils.data import Dataset
 
 
