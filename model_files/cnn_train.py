@@ -18,14 +18,16 @@ def train(train_iter, dev_iter, mixed_test_iter, model, args, text_field, aspect
     for epoch in range(1, args.epochs+1):
         for batch in train_iter:
             feature, aspect, target = batch.text, batch.aspect, batch.sentiment
-
-            feature.data.t_()
+            with torch.no_grad():
+            
+                feature.data.t_()
             if len(feature) < 2:
                 continue
             if not args.aspect_phrase:
                 aspect.data.unsqueeze_(0)
-            aspect.data.t_()
-            target.data.sub_(1)  # batch first, index align
+            with torch.no_grad():
+                aspect.data.t_()
+                target.data.sub_(1)  # batch first, index align
 
             if args.cuda:
                 feature, aspect, target = feature.cuda(), aspect.cuda(), target.cuda()
@@ -78,11 +80,13 @@ def eval(data_iter, model, args):
     loss = None
     for batch in data_iter:
         feature, aspect, target = batch.text, batch.aspect, batch.sentiment
-        feature.data.t_()
+        with torch.no_grad():
+            feature.data.t_()
         if not args.aspect_phrase:
             aspect.data.unsqueeze_(0)
-        aspect.data.t_()
-        target.data.sub_(1)  # batch first, index align
+        with torch.no_grad():
+            aspect.data.t_()
+            target.data.sub_(1)  # batch first, index align
         if args.cuda:
             feature, aspect, target = feature.cuda(), aspect.cuda(), target.cuda()
 
