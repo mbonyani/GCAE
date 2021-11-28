@@ -10,19 +10,19 @@ import random
 
 from mydatasets import SemEval, SemEval_TD
 
-rest_train = {16: '../SemEval2016Task5/ABSA16_Restaurants_Train_SB1_v2.xml',
-              15: '../SemEval2015/ABSA15_Restaurants_Train_Final.xml',
-              14: '../SemEval2014Task4/Restaurants_Train_v2.xml'}
-rest_test = {16: '../SemEval2016Task5/EN_REST_SB1_TEST.xml.gold',
-             15: '../SemEval2015/ABSA15_Restaurants_Test.xml',
-             14: '../SemEval2014Task4/Restaurants_Test_Gold.xml'}
+rest_train = {16: '/content/rest_train/SemEval2016Task5/ABSA16_Restaurants_Train_SB1_v2.xml',
+              15: '/content/rest_train/SemEval2015/ABSA15_Restaurants_Train_Final.xml',
+              14: '/content/rest_train/SemEval2014Task4/Restaurants_Train_v2.xml'}
+rest_test = {16: '/content/rest_test/SemEval2016Task5/EN_REST_SB1_TEST.xml.gold',
+             15: '/content/rest_test/SemEval2015/ABSA15_Restaurants_Test.xml',
+             14: '/content/rest_test/SemEval2014Task4/Restaurants_Test_Gold.xml'}
 
-laptop_train = {16: '../SemEval2016Task5/ABSA16_Laptops_Train_SB1_v2.xml',
-                15: '../SemEval2015/ABSA15_Laptops_Train_Data.xml',
-                14: '../SemEval2014Task4/Laptop_Train_v2.xml'}
-laptop_test = {16: '../SemEval2016Task5/EN_LAPT_SB1_TEST_.xml.gold',
-               15: '../SemEval2015/ABSA15_Laptops_Test.xml',
-               14: '../SemEval2014Task4/Laptops_Test_Gold.xml'}
+laptop_train = {16: '/content/laptop_train/SemEval2016Task5/ABSA16_Laptops_Train_SB1_v2.xml',
+                15: '/content/laptop_train/SemEval2015/ABSA15_Laptops_Train_Data.xml',
+                14: '/content/laptop_train/SemEval2014Task4/Laptop_Train_v2.xml'}
+laptop_test = {16: '/content/laptop_test/SemEval2016Task5/EN_LAPT_SB1_TEST_.xml.gold',
+               15: '/content/laptop_test/SemEval2015/ABSA15_Laptops_Test.xml',
+               14: '/content/laptop_test/SemEval2014Task4/Laptops_Test_Gold.xml'}
 ds_train = {'r': rest_train, 'l': laptop_train}
 ds_test = {'r': rest_test, 'l': laptop_test}
 ds_yelp = '../data/yelp/review.json'
