@@ -450,26 +450,26 @@ if __name__ == '__main__':
     args = parser.parse_args()
     aspects = ''
     years = [int(i) for i in args.years.split('_')]
-    import json as js 
+#     import json as js 
     if args.task == "acsa":
     # ACSA
-#         train_data, test_data = get_semeval(years, None, args.rest_lap, args.use_attribute)
-#         print(len(train_data))
-#         unrolled_train, mixed_train = SemEval.unroll(train_data)
-#         unrolled_test, mixed_test = SemEval.unroll(test_data)
+        train_data, test_data = get_semeval(years, None, args.rest_lap, args.use_attribute)
+        print(len(train_data))
+        unrolled_train, mixed_train = SemEval.unroll(train_data)
+        unrolled_test, mixed_test = SemEval.unroll(test_data)
 
-        with open("acsa_train.json", "r") as fopen:
-            unrolled_train = js.load(fopen)
-#             fopen.write(json.dumps(unrolled_train))
-        with open("acsa_test.json", "r") as fopen:
-            unrolled_test = js.load(fopen)
-#             fopen.write(json.dumps(unrolled_test))
-        with open('acsa_hard_train.json', 'r') as fopen:
-            mixed_train = js.load(fopen)
-#             fopen.write(json.dumps(mixed_train))
-        with open('acsa_hard_test.json', 'r') as fopen:
-            mixed_test = js.load(fopen)
-#             fopen.write(json.dumps(mixed_test))
+        with open("acsa_train.json", "w") as fopen:
+#             unrolled_train = js.load(fopen)
+            fopen.write(json.dumps(unrolled_train))
+        with open("acsa_test.json", "w") as fopen:
+#             unrolled_test = js.load(fopen)
+            fopen.write(json.dumps(unrolled_test))
+        with open('acsa_hard_train.json', 'w') as fopen:
+#             mixed_train = js.load(fopen)
+            fopen.write(json.dumps(mixed_train))
+        with open('acsa_hard_test.json', 'w') as fopen:
+#             mixed_test = js.load(fopen)
+            fopen.write(json.dumps(mixed_test))
 
 
         print()
