@@ -83,7 +83,7 @@ class CNN_Gate_Aspect_Text(nn.Module):
         self.fc1 = nn.Linear(len(Ks)*Co, C)
         self.fc_aspect = nn.Linear(args.aspect_embed_dim, Co)
         print("COOOOOOOOOOO",Co)
-        self.aft_full = AFT_FULL(d_model=V, n=Co)
+        self.aft_full = AFT_FULL(d_model=1, n=Co)
 
     def forward(self, feature, aspect):
         feature = self.embed(feature)  # (N, L, D)
