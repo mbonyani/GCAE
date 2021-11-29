@@ -4,7 +4,7 @@ import datetime
 import torch
 import torchtext.legacy.data as data
 from w2v import *
-
+import numpy as np
 from cnn_gate_aspect_model import CNN_Gate_Aspect_Text
 from cnn_gate_aspect_model_atsa import CNN_Gate_Aspect_Text as CNN_Gate_Aspect_Text_atsa
 
@@ -241,10 +241,11 @@ for t in range(n_trials):
 
 print(accuracy_trials)
 accuracy_trials = np.array(accuracy_trials)
-means = accuracy_trials.mean(0)
-stds = accuracy_trials.std(0)
-print('{:.2f}    {:.2f}'.format(means[0], stds[0]))
-print('{:.2f}    {:.2f}'.format(means[1], stds[1]))
+print("GHGFDDDDDDDDDDDDDDDDDD",accuracy_trials.shape)
+# means = np.mean(accuracy_trials)#.mean()
+# stds = np.std(accuracy_trials)#.std()
+# print('{:.2f}    {:.2f}'.format(means, stds))
+# print('{:.2f}    {:.2f}'.format(means, stds))
 
 with open('time_stamps', 'w') as fopen:
     for trials in time_stamps_trials:
@@ -254,3 +255,6 @@ with open('time_stamps', 'w') as fopen:
         for _, dtime in trials:
             fopen.write('{:.4f} '.format(dtime))
         fopen.write('\n')
+
+
+
