@@ -103,7 +103,8 @@ class CNN_Gate_Aspect_Text(nn.Module):
         x = [i*j for i, j in zip(x, y)]
 
         # pooling method
-        x = [self.aft_full(F.max_pool1d(i, i.size(2))).squeeze(2) for i in x]  # [(N,Co), ...]*len(Ks)
+        x = [F.max_pool1d(i, i.size(2)).squeeze(2) for i in x]  # [(N,Co), ...]*len(Ks)
+#         x = [self.aft_full(F.max_pool1d(i, i.size(2))).squeeze(2) for i in x]  # [(N,Co), ...]*len(Ks)
         # x = [F.adaptive_max_pool1d(i, 2) for i in x]
         # x = [i.view(i.size(0), -1) for i in x]
 
