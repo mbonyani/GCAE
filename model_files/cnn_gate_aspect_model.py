@@ -95,7 +95,8 @@ class CNN_Gate_Aspect_Text(nn.Module):
         x = [i*j for i, j in zip(x, y)]
 
         # pooling method
-        x0 = [self.aft_full(F.max_pool1d(i, i.size(2))).squeeze(2) for i in x]  # [(N,Co), ...]*len(Ks)
+        x0 = [F.max_pool1d(i, i.size(2)).squeeze(2) for i in x]  # [(N,Co), ...]*len(Ks)
+#         x0 = [self.aft_full(F.max_pool1d(i, i.size(2))).squeeze(2) for i in x]  # [(N,Co), ...]*len(Ks)
         x0 = [i.view(i.size(0), -1) for i in x0]
 
         x0 = torch.cat(x0, 1)
